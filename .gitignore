@@ -30,3 +30,4 @@ debug/
 
 .cache
 .fabric
+*.tmp
