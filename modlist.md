@@ -28,6 +28,8 @@ Fabric API
 Fabric Language Kotlin
 Forge Config API Port
 YetAnotherConfigLib
+Architectury API
+jamLib
 
 🧰 Sonstige / Gameplay / Komfort
 -------------------------------
