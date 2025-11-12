@@ -18,7 +18,7 @@ Noisium
 Server Core
 spark
 Very Many Players
-Archivements Optimizer
+Achivements Optimizer
 
 📚 Bibliotheken / APIs
 ----------------------
