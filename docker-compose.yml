@@ -35,7 +35,3 @@ services:
       ALLOW_FLIGHT: "true"
     volumes:
       - "./data:/data"
-    command: >
-      bash -c "
-        cp -r /mods/* /data/mods/ &&
-        cp -r /config/* /data/
