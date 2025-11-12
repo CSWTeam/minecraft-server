@@ -1,0 +1,37 @@
+services:
+  minecraft:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft
+    user: "1000:1000"
+    tty: true
+    stdin_open: true
+    ports:
+      - "25565:25565"
+    restart: no
+    environment:
+      EULA: "TRUE"
+      TYPE: "FABRIC"
+      VERSION: "LATEST"
+      MEMORY: "4096M"
+      MOTD: "\\u00A76\\u00A79\\u00A7d✨ CSWcraft ✨ \\u00A77\\u00A7r - [1.21.10 Vanilla+]
+             \\u00A7eDer offizielle Minecraft-Server der CSW\\u00A7r
+             \\u00A7aJoin, Build, Explore!"
+      ICON: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bi\
+        ng.net%2Fth%2Fid%2FOIP.accZZgAN7FvmiEai5yvgnwHaB_%3Fcb%3Ducfimgc2%26pid\
+        %3DApi&f=1&ipt=da8096d6d216e6125ca3d673c4e28950b75dc7856c1bbf16d6303f32\
+        7baf831e"
+      OVERRIDE_ICON: "true"
+      USE_AIKAR_FLAGS: "true"
+      USE_MEOWICE_FLAGS: "true"
+      TZ: "Europe/Berlin"
+      DIFFICULTY: "2"
+      FORCE_GAMEMODE: "true"
+      ENABLE_COMMAND_BLOCK: "true"
+      VIEW_DISTANCE: "16"
+      SPAWN_PROTECTION: "10"
+      OPS: |-
+        dargonrol
+        Sylphina
+      ALLOW_FLIGHT: "true"
+    volumes:
+      - "./data:/data"

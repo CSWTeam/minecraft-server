@@ -1,0 +1,32 @@
+# --- Welten & generierte Daten ---
+world/
+world_nether/
+world_the_end/
+*.dat
+*.mca
+
+# --- Server runtime files ---
+cache/
+logs/
+usercache.json
+usernamecache.json
+banned-ips.json
+banned-players.json
+whitelist.json
+ops.json
+eula.txt
+*.log
+*.log.gz
+
+plugins/*/data/
+plugins/*/cache/
+plugins/*/logs/
+mods/.fabric/
+config/.cache/
+config/spark/
+crash-reports/
+debug/
+.loom/
+
+.cache
+.fabric
