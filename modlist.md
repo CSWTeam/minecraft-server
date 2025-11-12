@@ -9,7 +9,6 @@ William Wythers' Expanded Ecosphere
 
 ⚙️ Performance / Optimierung / Server Stability
 -----------------------------------------------
-Concurrent Chunk Management Engine (C²ME)
 Ferrite Core
 Krypton
 Lithium
@@ -30,6 +29,8 @@ Forge Config API Port
 YetAnotherConfigLib
 Architectury API
 jamLib
+Lithostiched
+Balm
 
 🧰 Sonstige / Gameplay / Komfort
 -------------------------------
