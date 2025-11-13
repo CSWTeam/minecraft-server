@@ -23,7 +23,7 @@ services:
       OVERRIDE_ICON: "true"
       USE_AIKAR_FLAGS: "true"
       USE_MEOWICE_FLAGS: "true"
-      ENABLE_RCON: "false"
+      ENABLE_RCON: "true"
       TZ: "Europe/Berlin"
       DIFFICULTY: "2"
       FORCE_GAMEMODE: "true"
