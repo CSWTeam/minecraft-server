@@ -1,7 +1,7 @@
 #!/bin/bash
 # === Minecraft Docker Backup Script ===
 set -e
-source .env
+source ../.env
 
 # === configuration ===
 CONTAINER="$MINECRAFT_CONTAINER"

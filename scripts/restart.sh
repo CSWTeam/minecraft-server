@@ -1,7 +1,7 @@
 #!/bin/bash
 # === Minecraft restarting script ===
 set -e
-source .env
+source ../.env
 
 # === configuration ===
 CONTAINER="$MINECRAFT_CONTAINER"

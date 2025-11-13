@@ -1,4 +1,13 @@
 services:
+  cleanup:
+    image: alpine:latest
+    volumes:
+      - ./data:/data
+      - ./init.sh:/init.sh
+    entrypoint:
+      ["/bin/sh", "/init.sh"]
+    restart: no
+
   minecraft:
     image: itzg/minecraft-server:latest
     container_name: ${MINECRAFT_CONTAINER}
@@ -8,7 +17,7 @@ services:
     ports:
       - "25565:25565"
       - "${RCON_PORT}:${RCON_PORT}"
-    restart: no
+    restart: always
     environment:
       EULA: "TRUE"
       TYPE: "FABRIC"
@@ -39,4 +48,6 @@ services:
       ALLOW_FLIGHT: "true"
     volumes:
       - "./data:/data"
-    command: /init.sh
+      - ./init.sh:/init.sh
+    depends_on:
+      - cleanup
