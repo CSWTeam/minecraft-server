@@ -1,12 +1,13 @@
 services:
   minecraft:
     image: itzg/minecraft-server:latest
-    container_name: minecraft
+    container_name: ${MINECRAFT_CONTAINER}
     user: "1000:1000"
     tty: true
     stdin_open: true
     ports:
       - "25565:25565"
+      - "${RCON_PORT}:${RCON_PORT}"
     restart: no
     environment:
       EULA: "TRUE"
@@ -24,6 +25,8 @@ services:
       USE_AIKAR_FLAGS: "true"
       USE_MEOWICE_FLAGS: "true"
       ENABLE_RCON: "true"
+      RCON_PORT: ${RCON_PORT}
+      RCON_PASSWORD: ${RCON_PASSWORD}
       TZ: "Europe/Berlin"
       DIFFICULTY: "2"
       FORCE_GAMEMODE: "true"
@@ -36,3 +39,4 @@ services:
       ALLOW_FLIGHT: "true"
     volumes:
       - "./data:/data"
+    command: /init.sh
