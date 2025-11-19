@@ -32,3 +32,4 @@ debug/
 .fabric
 *.tmp
 *.env
+data/

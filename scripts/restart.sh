@@ -1,7 +1,8 @@
 #!/bin/bash
 # === Minecraft restarting script ===
 set -e
-source ../.env
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../.env"
 
 # === configuration ===
 CONTAINER="$MINECRAFT_CONTAINER"
@@ -19,10 +20,10 @@ echo "##############################################"
 # === warn player ===
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  say "§e[Server]§r Restarting Server in 5 minutes!"
-sleep 1
+sleep 240
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  say "§e[Server]§r Restarting Server in 1 minute!"
-sleep 1
+sleep 60
 
 # === Saving world ===
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \

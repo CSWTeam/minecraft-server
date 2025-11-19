@@ -1,8 +1,8 @@
 #!/bin/bash
 # === Load latest Minecraft backup ===
 
-BACKUP_DIR="/home/csw/minecraft-backups"
-WORLD_DIR="/home/csw/minecraft-server/data/world"
+BACKUP_DIR="/home/csw/backup/minecraft-backups"
+WORLD_DIR="/home/csw/minecraft-server/data"
 DATE=$(date +'%Y-%m-%d_%H-%M-%S')
 LOGPATH="/home/csw/minecraft-server"
 LOGFILE="$LOGPATH/minecraft.log"

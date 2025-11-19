@@ -1,12 +1,13 @@
 #!/bin/bash
 # === Minecraft Docker Backup Script ===
 set -e
-source ../.env
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$SCRIPT_DIR/../.env"
 
 # === configuration ===
 CONTAINER="$MINECRAFT_CONTAINER"
-BACKUP_DIR="/home/csw/minecraft-backups"
-DATA_DIR="/home/csw/minecraft-server/data/world"
+BACKUP_DIR="/home/csw/backup/minecraft-backups"
+DATA_DIR="/home/csw/minecraft-server/data"
 DATE=$(date +'%Y-%m-%d_%H-%M-%S')
 BACKUP_NAME="minecraft_${DATE}.tar.gz"
 MAX_BACKUPS=10
@@ -26,10 +27,10 @@ mkdir -p "$BACKUP_DIR"
 # === warn players ===
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  say "§e[Server]§r Server Backup starts in 5 minutes!"
-sleep 1
+sleep 240
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  say "§e[Server]§r Server Backup starts in 1 minute!"
-sleep 1
+sleep 60
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  say "§e[Server]§r Server Backup starting..."
 
@@ -40,7 +41,7 @@ docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD
  save-all flush
 
 echo "[INFO] starting backup at $(date)..."
-tar --exclude="*.sqlite*" -czf "$BACKUP_DIR/$BACKUP_NAME" -C "$DATA_DIR" .
+tar -czf "$BACKUP_DIR/$BACKUP_NAME" -C "$DATA_DIR" .
 
 docker exec "$CONTAINER" rcon-cli --port "$RCON_PORT" --password "$RCON_PASSWORD" \
  save-on
